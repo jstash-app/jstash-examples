@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notes · jstash Apps + Clerk</title>
+    <style>
+      :root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.5; }
+      main { max-width: 40rem; margin: 3rem auto; padding: 0 1rem; }
+      textarea { width: 100%; box-sizing: border-box; font: inherit; padding: 0.5rem; }
+      fieldset { border: 0; padding: 0; margin: 0; }
+      button { font: inherit; padding: 0.4rem 0.9rem; cursor: pointer; }
+      .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+      .muted, #status { color: GrayText; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Notes</h1>
+      <p class="muted">
+        Sign in, write something and save it. Sign out and back in, or open this page in another browser, and it comes back.
+        Each person who signs in gets their own notes.
+      </p>
+
+      <!-- Clerk's sign-in screen goes here while nobody is signed in. -->
+      <div id="sign-in"></div>
+
+      <section id="notes" hidden>
+        <p>Signed in as <strong id="who"></strong> · <button id="sign-out" type="button">Sign out</button></p>
+        <fieldset id="editor" disabled>
+          <textarea id="text" rows="10" aria-label="Your notes" placeholder="Write something…"></textarea>
+          <div class="actions">
+            <button id="save" type="button">Save</button>
+            <button id="delete" type="button">Delete my data</button>
+          </div>
+        </fieldset>
+      </section>
+
+      <p id="status" role="status">Loading…</p>
+      <p class="muted">Saved with <a href="https://jstash.app/apps/">jstash Apps</a>. <a href="https://jstash.app/docs/apps/">Guide</a></p>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
